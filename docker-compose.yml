@@ -1,0 +1,15 @@
+version: '3'
+services:
+  samba:
+    image: dperson/samba
+    container_name: samba
+    ports:
+      - "139"
+      - "445"
+    volumes:
+      - ./config:/etc/samba
+      - ./data:/mnt/data
+    environment:
+      - USERID=1000
+      - GROUPID=1000
+    restart: always
